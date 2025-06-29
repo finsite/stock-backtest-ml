@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-backtest-ml
+  labels:
+    app: stock-backtest-ml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-backtest-ml
+  template:
+    metadata:
+      labels:
+        app: stock-backtest-ml
+    spec:
+      containers:
+      - name: stock-backtest-ml
+        image: stock-backtest-ml:latest
+        ports:
+        - containerPort: 8080
