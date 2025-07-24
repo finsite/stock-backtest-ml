@@ -27,3 +27,4 @@ urllib3>=2.5.0
 
 # Paper trading enhancement
 sqlalchemy>=2.0
+pillow==11.3.0
