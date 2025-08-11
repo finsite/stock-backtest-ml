@@ -1,5 +1,4 @@
-"""
-Processor module for stock-backtest-ml signal generation.
+"""Processor module for stock-backtest-ml signal generation.
 
 Validates input messages and simulates signal generation using a
 placeholder machine learning model.
@@ -15,8 +14,7 @@ logger = setup_logger(__name__)
 
 
 def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
-    """
-    Validate the incoming raw message against the expected schema.
+    """Validate the incoming raw message against the expected schema.
 
     Args:
         message (dict[str, Any]): Raw input message.
@@ -26,6 +24,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
     Raises:
         ValueError: If the input format is invalid.
+
     """
     logger.debug("🔍 Validating message schema...")
     if not validate_message_schema(message):
@@ -35,8 +34,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
 
 def generate_ml_signal(message: ValidatedMessage) -> dict[str, Any]:
-    """
-    Simulate ML-based signal generation.
+    """Simulate ML-based signal generation.
 
     A real implementation would load a model and compute predictions
     from feature inputs.
@@ -46,6 +44,7 @@ def generate_ml_signal(message: ValidatedMessage) -> dict[str, Any]:
 
     Returns:
         dict[str, Any]: Enriched message with ML signal and confidence.
+
     """
     symbol = message.get("symbol", "UNKNOWN")
     logger.info("🤖 Generating ML signal for %s", symbol)
